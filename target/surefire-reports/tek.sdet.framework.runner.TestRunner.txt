@@ -1,22 +1,13 @@
 -------------------------------------------------------------------------------
 Test set: tek.sdet.framework.runner.TestRunner
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 7.31 s <<< FAILURE! - in tek.sdet.framework.runner.TestRunner
-Retail Account Page.Verify User can remove Debit or Credit card  Time elapsed: 3.347 s  <<< FAILURE!
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 4.404 s <<< FAILURE! - in tek.sdet.framework.runner.TestRunner
+Retail Account Page.Verify User can remove Address from Account  Time elapsed: 3.932 s  <<< FAILURE!
 java.lang.AssertionError
 	at org.junit.Assert.fail(Assert.java:87)
 	at org.junit.Assert.assertTrue(Assert.java:42)
 	at org.junit.Assert.assertFalse(Assert.java:65)
 	at org.junit.Assert.assertFalse(Assert.java:75)
-	at tek.sdet.framework.steps.RetailAccountSteps.paymentDetailsShouldBeRemoved(RetailAccountSteps.java:150)
-	at ✽.Payment details should be removed(classpath:features/RetailAccount.feature:55)
-
-Retail Account Page.Verify User can remove Address from Account  Time elapsed: 3.507 s  <<< FAILURE!
-java.lang.AssertionError
-	at org.junit.Assert.fail(Assert.java:87)
-	at org.junit.Assert.assertTrue(Assert.java:42)
-	at org.junit.Assert.assertFalse(Assert.java:65)
-	at org.junit.Assert.assertFalse(Assert.java:75)
-	at tek.sdet.framework.steps.RetailAccountSteps.addressDetailsShouldBeRemoved(RetailAccountSteps.java:225)
-	at ✽.Address details should be removed(classpath:features/RetailAccount.feature:91)
+	at tek.sdet.framework.steps.RetailAccountSteps.addressDetailsShouldBeRemoved(RetailAccountSteps.java:234)
+	at ✽.Address details should be removed(classpath:features/RetailAccount.feature:89)
 

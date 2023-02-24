@@ -13,6 +13,7 @@ import io.cucumber.java.en.When;
 
 import tek.sdet.framework.pages.POMFactory;
 import tek.sdet.framework.utilities.CommonUtility;
+import tek.sdet.framework.utilities.DataGeneratorUtility;
 
 public class SignInSteps extends CommonUtility {
 
@@ -63,6 +64,12 @@ public class SignInSteps extends CommonUtility {
 	@And("User fill the signUp information with below data")
 	public void userFillTheSignUpInformationWithBelowData(DataTable dataTable) {
 		List<Map<String, String>> signUpInformation = dataTable.asMaps(String.class, String.class);
+//		sendText(factory.signInPage().signUpNameInput, DataGeneratorUtility.data(signUpInformation.get(0).get("name")));
+//		sendText(factory.signInPage().signUpNameInput, DataGeneratorUtility.data(signUpInformation.get(0).get("email")));
+
+		
+		
+		
 		sendText(factory.signInPage().signUpNameInput,signUpInformation.get(0).get("name"));
 		sendText(factory.signInPage().signUpEmailInput,signUpInformation.get(0).get("email"));
 		sendText(factory.signInPage().signUpPasswordInput,signUpInformation.get(0).get("password"));

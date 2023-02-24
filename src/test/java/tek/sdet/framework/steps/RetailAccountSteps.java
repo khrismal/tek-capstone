@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.junit.Assert;
+import org.openqa.selenium.By;
 
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
@@ -13,6 +14,7 @@ import io.cucumber.java.en.When;
 
 import tek.sdet.framework.pages.POMFactory;
 import tek.sdet.framework.utilities.CommonUtility;
+import tek.sdet.framework.utilities.DataGeneratorUtility;
 
 public class RetailAccountSteps extends CommonUtility {
 
@@ -141,16 +143,19 @@ public class RetailAccountSteps extends CommonUtility {
 //remove Debit or Credit card
 
 	@When("User click on remove option of card section")
-	public void userClickOnRemoveOptionOfCardSection() throws InterruptedException {
-		Thread.sleep(5000);
+	public void userClickOnRemoveOptionOfCardSection() {
 		click(factory.accountPage().removeBtn);
 		logger.info("User clicked on remove option of card section");
 	}
-//не понятно как его протестить?
+//doesn't work
 	@Then("Payment details should be removed")
-	public void paymentDetailsShouldBeRemoved() throws InterruptedException {
-		Thread.sleep(5000);
-		Assert.assertTrue(isElementDisplayed(factory.accountPage().existingCardForTest));
+	public void paymentDetailsShouldBeRemoved()   {
+		//refresh();
+		//Thread.sleep(5000);
+		//Assert.assertFalse(isElementDisplayed(factory.accountPage().existingCardForTest));
+		//it pass if element is not on the page
+		//Assert.assertEquals(0, getDriver().findElement(By.xpath("//div[@class='account__payment-selected account__payment-item']")).getSize());
+		Assert.assertTrue(getDriver().findElements(By.xpath("//div[@class='account__payment-selected account__payment-item']")).isEmpty());
 		logger.info("Payment details should be removed");
 	}
 //user add address
@@ -163,6 +168,23 @@ public class RetailAccountSteps extends CommonUtility {
 
 	@When("User fill new address form with below information")
 	public void userFillNewAddressFormWithBelowInformation(DataTable dataTable) {
+		
+		//use list of list
+//		List<List<String>> addressInfo = dataTable.asLists(String.class);
+//		selectByVisibleText(factory.accountPage().addNewAddressCountryInput, DataGeneratorUtility.data(addressInfo.get(0).get(0)));
+//		sendText(factory.accountPage().addNewAddressFullNameInput, DataGeneratorUtility.data(addressInfo.get(0).get(1)));
+//		sendText(factory.accountPage().addNewAddressPhoneNumberInput, DataGeneratorUtility.data(addressInfo.get(0).get(2)));
+//		sendText(factory.accountPage().addNewAddressStreetInput, DataGeneratorUtility.data(addressInfo.get(0).get(3)));
+//		sendText(factory.accountPage().addNewAddressApartmentInput, DataGeneratorUtility.data(addressInfo.get(0).get(4)));
+//		sendText(factory.accountPage().addNewAddressCityInput, DataGeneratorUtility.data(addressInfo.get(0).get(5)));
+//		selectByVisibleText(factory.accountPage().addNewAddressStateInput, DataGeneratorUtility.data(addressInfo.get(0).get(6)));
+
+
+
+
+
+		
+		
 		List<Map<String, String>> fillNewAddressForm = dataTable.asMaps(String.class, String.class);
 		clearTextUsingSendKeys(factory.accountPage().addNewAddressFullNameInput);
 		clearTextUsingSendKeys(factory.accountPage().addNewAddressPhoneNumberInput);
@@ -226,9 +248,11 @@ public class RetailAccountSteps extends CommonUtility {
 	//переписать чего-то не работает
 	@Then("Address details should be removed")
 	public void addressDetailsShouldBeRemoved() {
-	    //Thread.sleep(3000);//doesn't work
-		Assert.assertFalse(isElementDisplayed(factory.accountPage().existingAddedAddressForTest));
-	    
+	    refresh();
+		//Assert.assertFalse(isElementDisplayed(factory.accountPage().existingAddedAddressForTest));
+		//Assert.assertTrue(getDriver().findElements(By.xpath("//div[@class='account__payment-selected account__payment-item']")).isEmpty());
+
+	    Assert.assertTrue(getDriver().findElements(By.xpath("//div[@class='account__address-single']")).isEmpty());
 		logger.info("Address details should be removed");
 	}
 

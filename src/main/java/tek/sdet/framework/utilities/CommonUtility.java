@@ -48,6 +48,11 @@ public class CommonUtility extends BaseSetup {
 		this.waitTillClickable(element).click();
 	}
 	
+	//my function
+	public void refresh() {
+		getDriver().navigate().refresh();
+	}
+	
 	//
 	public void sendText(WebElement element, String value) {
 		this.waitTillPresence(element).sendKeys(value);

@@ -14,21 +14,29 @@ public class RetailOrderSteps extends CommonUtility {
 	private POMFactory factory = new POMFactory();
 
 	@When("User click on Orders section")
-	public void userClickOnOrdersSection() {
+	public void userClickOnOrdersSection() throws InterruptedException  {
+		Thread.sleep(5000);
+		//waitTillClickable(factory.homePage().ordersOption);
+		//waitTillPresence(factory.homePage().ordersOption);
 		click(factory.homePage().ordersOption);
+		getElementText(factory.orderPage().yourOrdersText);
 		logger.info("User clicked on Orders section");
 	}
 
 	// а куда конкретно?
 	@When("User click on first order in list")
 	public void userClickOnFirstOrderInList() {
-		click(factory.orderPage().firstOrderInTheList);
+		click(factory.orderPage().firstOrderHideDetails);
+		waitTillPresence(factory.orderPage().firstOrderShowDetails);
+		waitTillClickable(factory.orderPage().firstOrderShowDetails);
+		click(factory.orderPage().firstOrderShowDetails);
 		logger.info("User clicked on first order in list");
 
 	}
 
 	@When("User click on Cancel The Order button")
 	public void userClickOnCancelTheOrderBtn() {
+		waitTillPresence(factory.orderPage().cancelTheOrderBtnInYourOrders);
 		click(factory.orderPage().cancelTheOrderBtnInYourOrders);
 		logger.info("User clicked on Cancel The Order button");
 	}
@@ -53,7 +61,8 @@ public class RetailOrderSteps extends CommonUtility {
 	}
 
 	@Then("User click on Return Items button")
-	public void userClickOnReturnItemsButton() {
+	public void userClickOnReturnItemsButton() throws InterruptedException {
+		Thread.sleep(5000);
 		click(factory.orderPage().returnItemsBtn);
 		logger.info("User clicked on Return Items button");
 	}

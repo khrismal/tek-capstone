@@ -26,7 +26,7 @@ Feature: Retail Account Page
     And User click on Add a payment method link
     And User fill Debit or credit card information
       | cardNumber       | nameOnCard | expirationMonth | expirationYear | securityCode |
-      | 1934567831254887 | Chris Mal  |               6 |           2023 |          223 |
+      | 1934567831954887 | Chris Mal  |               6 |           2023 |          223 |
     And User click on Add your card button
     Then A message should be displayed ‘Payment Method added successfully’
 
@@ -35,7 +35,7 @@ Feature: Retail Account Page
     And User click on Add a payment method link
     And User fill Debit or credit card information
       | cardNumber       | nameOnCard | expirationMonth | expirationYear | securityCode |
-      | 1434567831254881 | Chris Mal  |               6 |           2023 |          223 |
+      | 1434597831254881 | Chris Mal  |               6 |           2023 |          223 |
     And User click on Add your card button
     And User click on Edit option of card section
     And User edit information with below data
@@ -49,7 +49,7 @@ Feature: Retail Account Page
     And User click on Add a payment method link
     And User fill Debit or credit card information
       | cardNumber       | nameOnCard | expirationMonth | expirationYear | securityCode |
-      | 1434597831254885 | Chris Mal  |               6 |           2023 |          223 |
+      | 1834507831254889 | Chris Mal  |               6 |           2023 |          223 |
     And User click on Add your card button
     And User click on remove option of card section
     Then Payment details should be removed
@@ -77,7 +77,7 @@ Feature: Retail Account Page
       | United Kingdom | Chris Mal |  1231231212 | Trafalgar     |  12 | Midsommer | Bath and North East Somerset |   12312 |
     And User click update Your Address button
     Then A message should be displayed ‘Address Updated Successfully’
-
+@test
   Scenario: Verify User can remove Address from Account
     When User click on Account option
     And User click on Add address option

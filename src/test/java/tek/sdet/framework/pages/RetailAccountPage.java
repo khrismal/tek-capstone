@@ -111,6 +111,9 @@ public class RetailAccountPage extends BaseSetup{
 	@FindBy(xpath = "//div[@class='account__payment-selected account__payment-item']")
 	public WebElement existingCardForTest;
 	
+//	@FindBy(xpath = "//*[@class = 'false account__payment-item']")
+//	public WebElement anotherExistingCardForTest;
+	
 	@FindBy(id = "countryDropdown")
 	public WebElement addNewAddressCountryInput;
 

@@ -100,31 +100,25 @@ public class HomeSteps extends CommonUtility {
 		click(factory.homePage().itemToBuy);
 		logger.info("User clicked on item");
 	}
-
-	@When("User select quantity ‘{int}’")
-	public void userSelectQuantity(Integer numberOfProducts) throws InterruptedException {
-		Thread.sleep(6000);
-		selectByIndex(factory.homePage().qtyDropDwn, numberOfProducts);
-		logger.info("User selected quantity " + numberOfProducts);
+	
+	@When("User select quantity {string}")
+	public void userSelectQuantity(String quantity) {
+		selectByValue(factory.homePage().qtyDropDwn, quantity);
+		logger.info("User select quantity" + quantity);
 	}
+	
 
 	@When("User click add to Cart button")
-	public void userclickAddToCartButton() throws InterruptedException {
-		Thread.sleep(5000);
+	public void userclickAddToCartButton() {
 		click(factory.homePage().addToCartBtn);
 		logger.info("User clicked add to Cart button");
 	}
-	//how to check that Cartqty = 2?
-	//rewrite this method
-	@Then("The cart icon quantity should change to ‘{int}’")
-	public void theCartIconQuantityShouldChangeTo(Integer cartQTY) throws InterruptedException {
-		Thread.sleep(5000);
-		//string number products in the cart
-		String stringNumInTheCart = getText(factory.homePage().cartQuantity);
-		//convert string in int
-		Integer numInTheCart = Integer.valueOf(stringNumInTheCart);
-//		Assert.assertTrue(numInTheCart.equals());
-//		System.out.println("There are " +  + " in the cart");
+	
+	@Then("The cart icon quantity should change to {string}")
+	public void theCartIconQuantityShouldChangeTo(String numberOfProductShouldBeIntheCart)  {
+		String numberOfProductInTheCart = getText(factory.homePage().cartQuantity);
+		Assert.assertTrue(numberOfProductInTheCart.equals(numberOfProductShouldBeIntheCart));
+		logger.info("There are " + numberOfProductInTheCart + " in the cart, and it should be "+ numberOfProductShouldBeIntheCart);
 	}
 
 	@Then("User click on Cart option")

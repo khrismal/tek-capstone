@@ -30,8 +30,8 @@ public class RetailOrderPage extends BaseSetup{
 	@FindBy(xpath = "//p[text()='Your Order Has Been Cancelled']")
 	public WebElement yourOrderHasBeenCancelledMessage;
 	
-	@FindBy(xpath = "//div[@class='order__content-actions']")
-	public WebElement firstOrderInTheList;
+//	@FindBy(xpath = "//div[@class='order__content-actions']")
+//	public WebElement firstOrderInTheList;
 	//(//div[@class = 'order'])[1]
 	
 	@FindBy(id = "reasonInput")
@@ -61,5 +61,13 @@ public class RetailOrderPage extends BaseSetup{
 	@FindBy(xpath = "//div[text()='Your review was added successfully']")
 	public WebElement reviewWasAddedSuccessMessage;
 	
+	@FindBy(xpath = "//*[text()='Your Orders']")
+	public WebElement yourOrdersText;
+	
+	@FindBy(xpath = "//*[text()='Hide Details']")
+	public WebElement firstOrderHideDetails;
+	
+	@FindBy(xpath = "//*[text()='Show Details']']")
+	public WebElement firstOrderShowDetails;
 	
 }
