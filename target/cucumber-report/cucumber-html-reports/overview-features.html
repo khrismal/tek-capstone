@@ -50,9 +50,9 @@ $(document).ready(function() {
     var chartData = {
         datasets: [{
             data: [
-                10,
+                165,
                 1,
-                0,
+                3,
                 0,
                 0
             ],
@@ -93,7 +93,7 @@ $(document).ready(function() {
                         var allData = data.datasets[tooltipItem.datasetIndex].data;
                         var tooltipLabel = data.labels[tooltipItem.index];
                         var tooltipData = allData[tooltipItem.index];
-                        var tooltipPercentage = Math.round(10000 * tooltipData / 11) / 100;
+                        var tooltipPercentage = Math.round(10000 * tooltipData / 169) / 100;
                         return tooltipLabel + ": " + tooltipData + " (" + tooltipPercentage + "%)";
                     }
                 }
@@ -106,7 +106,7 @@ $(document).ready(function() {
     var chartData = {
         datasets: [{
             data: [
-                0,
+                13,
                 1
             ],
             backgroundColor: [
@@ -140,7 +140,7 @@ $(document).ready(function() {
                         var allData = data.datasets[tooltipItem.datasetIndex].data;
                         var tooltipLabel = data.labels[tooltipItem.index];
                         var tooltipData = allData[tooltipItem.index];
-                        var tooltipPercentage = Math.round(10000 * tooltipData / 1) / 100;
+                        var tooltipPercentage = Math.round(10000 * tooltipData / 14) / 100;
                         return tooltipLabel + ": " + tooltipData + " (" + tooltipPercentage + "%)";
                     }
                 }
@@ -153,7 +153,7 @@ $(document).ready(function() {
     var chartData = {
         datasets: [{
             data: [
-                   0,
+                   2,
                    1
                ],
                backgroundColor: [
@@ -187,7 +187,7 @@ $(document).ready(function() {
                         var allData = data.datasets[tooltipItem.datasetIndex].data;
                         var tooltipLabel = data.labels[tooltipItem.index];
                         var tooltipData = allData[tooltipItem.index];
-                        var tooltipPercentage = Math.round(10000 * tooltipData / 1) / 100;
+                        var tooltipPercentage = Math.round(10000 * tooltipData / 3) / 100;
                         return tooltipLabel + ": " + tooltipData + " (" + tooltipPercentage + "%)";
                     }
                 }
@@ -230,7 +230,7 @@ $(document).ready(function() {
     <tr class="info">
       <td>cucumber-jvm-example</td>
         <td>1</td>
-      <td>22 Feb 2023, 15:01</td>
+      <td>25 Feb 2023, 17:27</td>
     </tr>
   </tbody>
 </table>
@@ -325,54 +325,88 @@ $(document).ready(function() {
 
   <tbody>
       <tr>
-        <td class="tagname"><a href="report-feature_3514281404.html">Retail Account Page</a></td>
+        <td class="tagname"><a href="report-feature_1070035835.html">Home Page</a></td>
 
-        <td      class="passed"    >10</td>
+        <td      class="passed"    >73</td>
+        <td >0</td>
+        <td >0</td>
+        <td >0</td>
+        <td >0</td>
+        <td class="total">73</td>
+
+        <td  class="passed"    >9</td>
+        <td >0</td>
+        <td class="total">9</td>
+
+        <td class="duration" data-value="67436253800">1:7.436</td>
+        <td class="passed">Passed</td>
+      </tr>
+      <tr>
+        <td class="tagname"><a href="report-feature_1_697482205.html">Retail Order Page</a></td>
+
+        <td      class="passed"    >81</td>
         <td      class="failed"    >1</td>
+        <td     class="skipped"   >3</td>
+        <td >0</td>
+        <td >0</td>
+        <td class="total">85</td>
+
+        <td  class="passed"    >2</td>
+        <td  class="failed"    >1</td>
+        <td class="total">3</td>
+
+        <td class="duration" data-value="90450012500">1:30.450</td>
+        <td class="failed">Failed</td>
+      </tr>
+      <tr>
+        <td class="tagname"><a href="report-feature_2_2573075998.html">Sign In Feature</a></td>
+
+        <td      class="passed"    >11</td>
+        <td >0</td>
         <td >0</td>
         <td >0</td>
         <td >0</td>
         <td class="total">11</td>
 
+        <td  class="passed"    >2</td>
         <td >0</td>
-        <td  class="failed"    >1</td>
-        <td class="total">1</td>
+        <td class="total">2</td>
 
-        <td class="duration" data-value="1738535100">1.738</td>
-        <td class="failed">Failed</td>
+        <td class="duration" data-value="1390202600">1.390</td>
+        <td class="passed">Passed</td>
       </tr>
   </tbody>
 
   <tfoot class="total">
     <tr>
       <td></td>
-      <td>10</td>
+      <td>165</td>
       <td>1</td>
+      <td>3</td>
       <td>0</td>
       <td>0</td>
-      <td>0</td>
-      <td>11</td>
+      <td>169</td>
 
-      <td>0</td>
+      <td>13</td>
       <td>1</td>
-      <td>1</td>
+      <td>14</td>
 
-      <td class="duration">1.738</td>
-      <td>1</td>
+      <td class="duration">2:39.276</td>
+      <td>3</td>
     </tr>
     <tr>
       <td></td>
-      <td>90.91%</td>
-      <td>9.09%</td>
-      <td>0.00%</td>
+      <td>97.63%</td>
+      <td>0.59%</td>
+      <td>1.78%</td>
       <td>0.00%</td>
       <td>0.00%</td>
       <td></td>
-      <td>0.00%</td>
-      <td>100.00%</td>
+      <td>92.86%</td>
+      <td>7.14%</td>
       <td></td>
       <td></td>
-      <td>0.00%</td>
+      <td>66.67%</td>
     </tr>
   </tfoot>
 </table>

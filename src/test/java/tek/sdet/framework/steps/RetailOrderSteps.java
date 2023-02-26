@@ -23,9 +23,10 @@ public class RetailOrderSteps extends CommonUtility {
 		logger.info("User clicked on Orders section");
 	}
 
-	// а куда конкретно?
+	// doesn't work
 	@When("User click on first order in list")
 	public void userClickOnFirstOrderInList() {
+		waitTillPresence(factory.orderPage().cancelTheOrderBtnInYourOrders);
 		click(factory.orderPage().firstOrderHideDetails);
 		waitTillPresence(factory.orderPage().firstOrderShowDetails);
 		waitTillClickable(factory.orderPage().firstOrderShowDetails);
@@ -35,7 +36,8 @@ public class RetailOrderSteps extends CommonUtility {
 	}
 
 	@When("User click on Cancel The Order button")
-	public void userClickOnCancelTheOrderBtn() {
+	public void userClickOnCancelTheOrderBtn() throws InterruptedException {
+		Thread.sleep(5000);
 		waitTillPresence(factory.orderPage().cancelTheOrderBtnInYourOrders);
 		click(factory.orderPage().cancelTheOrderBtnInYourOrders);
 		logger.info("User clicked on Cancel The Order button");

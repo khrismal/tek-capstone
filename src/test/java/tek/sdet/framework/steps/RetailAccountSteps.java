@@ -82,11 +82,19 @@ public class RetailAccountSteps extends CommonUtility {
 	@And("User fill Debit or credit card information")
 	public void userFillDebitOrCreditCardInfo(DataTable dataTable) {
 		List<Map<String, String>> debitOrCreditCardInfo = dataTable.asMaps(String.class, String.class);
-		sendText(factory.accountPage().cardNumberInput, debitOrCreditCardInfo.get(0).get("cardNumber"));
-		sendText(factory.accountPage().nameOnCardInput, debitOrCreditCardInfo.get(0).get("nameOnCard"));
+		sendText(factory.accountPage().cardNumberInput, DataGeneratorUtility.data(debitOrCreditCardInfo.get(0).get("cardNumber")));
+		sendText(factory.accountPage().nameOnCardInput, DataGeneratorUtility.data(debitOrCreditCardInfo.get(0).get("nameOnCard")));
 		selectByValue(factory.accountPage().expirationMonthInput, debitOrCreditCardInfo.get(0).get("expirationMonth"));
 		selectByValue(factory.accountPage().expirationYearInput, debitOrCreditCardInfo.get(0).get("expirationYear"));
-		sendText(factory.accountPage().securityCodeInput, debitOrCreditCardInfo.get(0).get("securityCode"));
+		sendText(factory.accountPage().securityCodeInput, DataGeneratorUtility.data(debitOrCreditCardInfo.get(0).get("securityCode")));
+
+		
+		
+//		sendText(factory.accountPage().cardNumberInput, debitOrCreditCardInfo.get(0).get("cardNumber"));
+//		sendText(factory.accountPage().nameOnCardInput, debitOrCreditCardInfo.get(0).get("nameOnCard"));
+//		selectByValue(factory.accountPage().expirationMonthInput, debitOrCreditCardInfo.get(0).get("expirationMonth"));
+//		selectByValue(factory.accountPage().expirationYearInput, debitOrCreditCardInfo.get(0).get("expirationYear"));
+//		sendText(factory.accountPage().securityCodeInput, debitOrCreditCardInfo.get(0).get("securityCode"));
 		logger.info("User filled Debit or credit card information");
 	}
 
@@ -116,14 +124,24 @@ public class RetailAccountSteps extends CommonUtility {
 		clearTextUsingSendKeys(factory.accountPage().updateCardNumberInput);
 		clearTextUsingSendKeys(factory.accountPage().updateNameOnCardInput);
 		clearTextUsingSendKeys(factory.accountPage().updateSecurityCode);
-		sendText(factory.accountPage().updateCardNumberInput, updateDebitOrCreditCardInfo.get(0).get("cardNumber"));
-		sendText(factory.accountPage().updateNameOnCardInput, updateDebitOrCreditCardInfo.get(0).get("nameOnCard"));
-		selectByValue(factory.accountPage().updateExpirationMonth,
-				updateDebitOrCreditCardInfo.get(0).get("expirationMonth"));
+		sendText(factory.accountPage().cardNumberInput, DataGeneratorUtility.data(updateDebitOrCreditCardInfo.get(0).get("cardNumber")));
+		sendText(factory.accountPage().nameOnCardInput, DataGeneratorUtility.data(updateDebitOrCreditCardInfo.get(0).get("nameOnCard")));
 		selectByValue(factory.accountPage().updateExpirationYear,
 				updateDebitOrCreditCardInfo.get(0).get("expirationYear"));
-		sendText(factory.accountPage().updateSecurityCode, updateDebitOrCreditCardInfo.get(0).get("securityCode"));
+		selectByValue(factory.accountPage().updateExpirationMonth,
+				updateDebitOrCreditCardInfo.get(0).get("expirationMonth"));
+		sendText(factory.accountPage().securityCodeInput, DataGeneratorUtility.data(updateDebitOrCreditCardInfo.get(0).get("securityCode")));
 		logger.info("User edited information with below data");
+				
+		
+//		sendText(factory.accountPage().updateCardNumberInput, updateDebitOrCreditCardInfo.get(0).get("cardNumber"));
+//		sendText(factory.accountPage().updateNameOnCardInput, updateDebitOrCreditCardInfo.get(0).get("nameOnCard"));
+//		selectByValue(factory.accountPage().updateExpirationMonth,
+//				updateDebitOrCreditCardInfo.get(0).get("expirationMonth"));
+//		selectByValue(factory.accountPage().updateExpirationYear,
+//				updateDebitOrCreditCardInfo.get(0).get("expirationYear"));
+//		sendText(factory.accountPage().updateSecurityCode, updateDebitOrCreditCardInfo.get(0).get("securityCode"));
+	
 
 	}
 
@@ -168,39 +186,40 @@ public class RetailAccountSteps extends CommonUtility {
 
 	@When("User fill new address form with below information")
 	public void userFillNewAddressFormWithBelowInformation(DataTable dataTable) {
-		
-		//use list of list
-//		List<List<String>> addressInfo = dataTable.asLists(String.class);
-//		selectByVisibleText(factory.accountPage().addNewAddressCountryInput, DataGeneratorUtility.data(addressInfo.get(0).get(0)));
-//		sendText(factory.accountPage().addNewAddressFullNameInput, DataGeneratorUtility.data(addressInfo.get(0).get(1)));
-//		sendText(factory.accountPage().addNewAddressPhoneNumberInput, DataGeneratorUtility.data(addressInfo.get(0).get(2)));
-//		sendText(factory.accountPage().addNewAddressStreetInput, DataGeneratorUtility.data(addressInfo.get(0).get(3)));
-//		sendText(factory.accountPage().addNewAddressApartmentInput, DataGeneratorUtility.data(addressInfo.get(0).get(4)));
-//		sendText(factory.accountPage().addNewAddressCityInput, DataGeneratorUtility.data(addressInfo.get(0).get(5)));
-//		selectByVisibleText(factory.accountPage().addNewAddressStateInput, DataGeneratorUtility.data(addressInfo.get(0).get(6)));
-
-
-
-
-
-		
-		
-		List<Map<String, String>> fillNewAddressForm = dataTable.asMaps(String.class, String.class);
+		List<List<String>> addressInfo = dataTable.asLists(String.class);
 		clearTextUsingSendKeys(factory.accountPage().addNewAddressFullNameInput);
 		clearTextUsingSendKeys(factory.accountPage().addNewAddressPhoneNumberInput);
 		clearTextUsingSendKeys(factory.accountPage().addNewAddressStreetInput);
 		clearTextUsingSendKeys(factory.accountPage().addNewAddressApartmentInput);
 		clearTextUsingSendKeys(factory.accountPage().addNewAddressCityInput);
 		clearTextUsingSendKeys(factory.accountPage().addNewAddresZipCode);
-		selectByValue(factory.accountPage().addNewAddressCountryInput, fillNewAddressForm.get(0).get("country"));
-		sendText(factory.accountPage().addNewAddressFullNameInput, fillNewAddressForm.get(0).get("fullName"));
-		sendText(factory.accountPage().addNewAddressPhoneNumberInput, fillNewAddressForm.get(0).get("phoneNumber"));
-		sendText(factory.accountPage().addNewAddressStreetInput, fillNewAddressForm.get(0).get("streetAddress"));
-		sendText(factory.accountPage().addNewAddressApartmentInput, fillNewAddressForm.get(0).get("apt"));
-		sendText(factory.accountPage().addNewAddressCityInput, fillNewAddressForm.get(0).get("city"));
-		selectByValue(factory.accountPage().addNewAddressStateInput, fillNewAddressForm.get(0).get("state"));
-		sendText(factory.accountPage().addNewAddresZipCode, fillNewAddressForm.get(0).get("zipCode"));
+		selectByVisibleText(factory.accountPage().addNewAddressCountryInput, DataGeneratorUtility.data(addressInfo.get(0).get(0)));
+		sendText(factory.accountPage().addNewAddressFullNameInput, DataGeneratorUtility.data(addressInfo.get(0).get(1)));
+		sendText(factory.accountPage().addNewAddressPhoneNumberInput, DataGeneratorUtility.data(addressInfo.get(0).get(2)));
+		sendText(factory.accountPage().addNewAddressStreetInput, DataGeneratorUtility.data(addressInfo.get(0).get(3)));
+		sendText(factory.accountPage().addNewAddressApartmentInput, DataGeneratorUtility.data(addressInfo.get(0).get(4)));
+		sendText(factory.accountPage().addNewAddressCityInput, DataGeneratorUtility.data(addressInfo.get(0).get(5)));
+		selectByVisibleText(factory.accountPage().addNewAddressStateInput, DataGeneratorUtility.data(addressInfo.get(0).get(6)));
+		sendText(factory.accountPage().addNewAddresZipCode, DataGeneratorUtility.data(addressInfo.get(0).get(7)));
 		logger.info("User filled new address form");
+
+		
+//		List<Map<String, String>> fillNewAddressForm = dataTable.asMaps(String.class, String.class);
+//		clearTextUsingSendKeys(factory.accountPage().addNewAddressFullNameInput);
+//		clearTextUsingSendKeys(factory.accountPage().addNewAddressPhoneNumberInput);
+//		clearTextUsingSendKeys(factory.accountPage().addNewAddressStreetInput);
+//		clearTextUsingSendKeys(factory.accountPage().addNewAddressApartmentInput);
+//		clearTextUsingSendKeys(factory.accountPage().addNewAddressCityInput);
+//		clearTextUsingSendKeys(factory.accountPage().addNewAddresZipCode);
+//		selectByValue(factory.accountPage().addNewAddressCountryInput, fillNewAddressForm.get(0).get("country"));
+//		sendText(factory.accountPage().addNewAddressFullNameInput, fillNewAddressForm.get(0).get("fullName"));
+//		sendText(factory.accountPage().addNewAddressPhoneNumberInput, fillNewAddressForm.get(0).get("phoneNumber"));
+//		sendText(factory.accountPage().addNewAddressStreetInput, fillNewAddressForm.get(0).get("streetAddress"));
+//		sendText(factory.accountPage().addNewAddressApartmentInput, fillNewAddressForm.get(0).get("apt"));
+//		sendText(factory.accountPage().addNewAddressCityInput, fillNewAddressForm.get(0).get("city"));
+//		selectByValue(factory.accountPage().addNewAddressStateInput, fillNewAddressForm.get(0).get("state"));
+//		sendText(factory.accountPage().addNewAddresZipCode, fillNewAddressForm.get(0).get("zipCode"));
+	
 
 	}
 

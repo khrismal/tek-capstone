@@ -36,6 +36,14 @@ public class SignInSteps extends CommonUtility {
 		logger.info("User clicked on Sign in option");
 	}
 	
+//	@And("User enter email and password")
+//	public void userEnterEmailAndPassword(DataTable dataTable) {
+//		List<List<String>> emailAndPasswordInfo = dataTable.asLists(String.class);
+//		sendText(factory.signInPage().emailInput, DataGeneratorUtility.data(emailAndPasswordInfo.get(0).get(0)));
+//		sendText(factory.signInPage().passwordInput, DataGeneratorUtility.data(emailAndPasswordInfo.get(0).get(1)));
+//		logger.info("User entered email and password");
+//
+//	}
 	@And("User enter email {string} and password {string}")
 	public void userEnterEmailAndPassword(String emailValue, String passwordValue) {
 		sendText(factory.signInPage().emailInput, emailValue);
@@ -63,17 +71,26 @@ public class SignInSteps extends CommonUtility {
 	
 	@And("User fill the signUp information with below data")
 	public void userFillTheSignUpInformationWithBelowData(DataTable dataTable) {
+		
 		List<Map<String, String>> signUpInformation = dataTable.asMaps(String.class, String.class);
-//		sendText(factory.signInPage().signUpNameInput, DataGeneratorUtility.data(signUpInformation.get(0).get("name")));
-//		sendText(factory.signInPage().signUpNameInput, DataGeneratorUtility.data(signUpInformation.get(0).get("email")));
+		String password = DataGeneratorUtility.data(signUpInformation.get(0).get("password"));
+
+		sendText(factory.signInPage().signUpNameInput, DataGeneratorUtility.data(signUpInformation.get(0).get("name")));
+		sendText(factory.signInPage().signUpEmailInput, DataGeneratorUtility.data(signUpInformation.get(0).get("email")));
+		//String password = DataGeneratorUtility.data(signUpInformation.get(0).get("password"));
+		//System.out.println("Debug" + password);
+		sendText(factory.signInPage().signUpPasswordInput, password);
+		sendText(factory.signInPage().signUpConfirmPassword, password);
 
 		
 		
 		
-		sendText(factory.signInPage().signUpNameInput,signUpInformation.get(0).get("name"));
-		sendText(factory.signInPage().signUpEmailInput,signUpInformation.get(0).get("email"));
-		sendText(factory.signInPage().signUpPasswordInput,signUpInformation.get(0).get("password"));
-		sendText(factory.signInPage().signUpConfirmPassword,signUpInformation.get(0).get("confirmPassword"));
+//		sendText(factory.signInPage().signUpNameInput,signUpInformation.get(0).get("name"));
+//		sendText(factory.signInPage().signUpEmailInput,signUpInformation.get(0).get("email"));
+//		sendText(factory.signInPage().signUpPasswordInput,signUpInformation.get(0).get("password"));
+//		sendText(factory.signInPage().signUpConfirmPassword,signUpInformation.get(0).get("confirmPassword"));
+		
+		
 //		sendText(factory.signInPage().signUpNameInput, name);
 //		sendText(factory.signInPage().signUpEmailInput, email);
 //		sendText(factory.signInPage().signUpPasswordInput, password);
