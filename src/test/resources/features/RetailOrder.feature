@@ -33,7 +33,7 @@ Feature: Retail Order Page
     And User click on Place Your Order
     Then A message should be displayed ‘Order Placed, Thanks’
     And User click on Orders section
-  	#And User click on first order in list
+  	And User click on first order in list
   
   Scenario: Verify User can cancel the order
     And User click on Cancel The Order button
