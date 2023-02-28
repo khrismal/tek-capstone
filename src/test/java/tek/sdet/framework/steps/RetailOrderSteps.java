@@ -23,17 +23,17 @@ public class RetailOrderSteps extends CommonUtility {
 		logger.info("User clicked on Orders section");
 	}
 
-	// doesn't work
-	@When("User click on first order in list")
-	public void userClickOnFirstOrderInList() {
-		waitTillPresence(factory.orderPage().cancelTheOrderBtnInYourOrders);
-		click(factory.orderPage().firstOrderHideDetails);
-		waitTillPresence(factory.orderPage().firstOrderShowDetails);
-		waitTillClickable(factory.orderPage().firstOrderShowDetails);
-		click(factory.orderPage().firstOrderShowDetails);
-		logger.info("User clicked on first order in list");
-
-	}
+//	//there is no need for this step
+//	@When("User click on first order in list")
+//	public void userClickOnFirstOrderInList() {
+//		waitTillPresence(factory.orderPage().cancelTheOrderBtnInYourOrders);
+//		click(factory.orderPage().firstOrderHideDetails);
+//		waitTillPresence(factory.orderPage().firstOrderShowDetails);
+//		waitTillClickable(factory.orderPage().firstOrderShowDetails);
+//		click(factory.orderPage().firstOrderShowDetails);
+//		logger.info("User clicked on first order in list");
+//
+//	}
 
 	@When("User click on Cancel The Order button")
 	public void userClickOnCancelTheOrderBtn() throws InterruptedException {
