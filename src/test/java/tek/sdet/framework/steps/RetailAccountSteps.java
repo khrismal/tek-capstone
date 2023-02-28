@@ -165,7 +165,7 @@ public class RetailAccountSteps extends CommonUtility {
 		click(factory.accountPage().removeBtn);
 		logger.info("User clicked on remove option of card section");
 	}
-//doesn't work
+
 	@Then("Payment details should be removed")
 	public void paymentDetailsShouldBeRemoved()   {
 		//refresh();
@@ -264,7 +264,7 @@ public class RetailAccountSteps extends CommonUtility {
 		logger.info("User clicked on remove option of Address section");
 	}
 	
-	//переписать чего-то не работает
+
 	@Then("Address details should be removed")
 	public void addressDetailsShouldBeRemoved() {
 	    refresh();
