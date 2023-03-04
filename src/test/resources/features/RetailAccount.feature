@@ -1,16 +1,16 @@
-
+@test
 Feature: Retail Account Page
 
   Background: 
     Given User is on retail website
     When User click on Sign in option
-    And User enter email 'chrismal@gmail.com' and password 'Qwer@1234'
+    And User enter email 'chrismal@gmail.com' and password '1234@Qwer'
     And User click on login button
     And User should be logged in into Account
 
   Scenario: Verify User can update Profile Information
     When User click on Account option
-    And User update Name 'Kris' and Phone '(705)1111111'
+    And User update Name 'MKhris' and Phone '(905)1111111'
     And User click on Update button
     Then User profile information should be updated
 
